@@ -627,6 +627,9 @@ public class CatService extends Handler implements AppInterface {
             CatLog.d(this, "SIM ready. Reporting STK service running now...");
             mCmdIf.reportStkServiceIsRunning(null);
             break;
+        case MSG_ID_TIMEOUT:
+            CatLog.d(this, "CAT Timeout");
+            break;
         default:
             throw new AssertionError("Unrecognized CAT command: " + msg.what);
         }
