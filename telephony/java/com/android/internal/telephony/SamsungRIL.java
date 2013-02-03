@@ -849,4 +849,15 @@ public class SamsungRIL extends RIL implements CommandsInterface {
         }
     }
 
+    @Override
+    public void getNeighboringCids(Message response) {
+    	/* RIL_REQUEST_GET_NEIGHBORING_CELL_IDS currently returns REQUEST_NOT_SUPPORTED */
+	
+    	AsyncResult.forMessage(response).exception =
+    	new CommandException(CommandException.Error.REQUEST_NOT_SUPPORTED);
+    	response.sendToTarget();
+    	response = null;
+    }
+
 }
+
